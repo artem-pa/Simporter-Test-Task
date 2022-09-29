@@ -1,1 +1,17 @@
-<p>table works!</p>
+<div class="container">
+  <table class="table">
+    <tr>
+      <th class="table__title">Title</th>
+      <th class="table__description">Description</th>
+      <th class="table__pages">Page Count</th>
+      <th class="table__date">Publish Date</th>
+    </tr>
+   
+    <tr  *ngFor="let book of bookList">
+      <td>{{book.title}}</td>
+      <td class="table__description">{{book.description}}</td>
+      <td>{{book.pageCount}}</td>
+      <td>{{book.publishDate | date}}</td>
+    </tr>
+  </table>
+</div>

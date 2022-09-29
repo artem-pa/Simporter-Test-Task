@@ -1,1 +1,12 @@
 @import "./assets/styles/reset";
+
+body {
+  font-size: 20px;
+  font-family: Arial, Helvetica, sans-serif
+}
+
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 20px;
+}
