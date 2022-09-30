@@ -14,4 +14,12 @@ export class TableComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  searchQuery = '';
+
+  get filteredBookList(): IBook[] {
+    if (this.searchQuery === '') return this.bookList;
+    return this.bookList.filter(book =>
+      book.title.toLowerCase().includes(this.searchQuery.toLowerCase()) ||
+      book.description.toLowerCase().includes(this.searchQuery.toLowerCase()))
+  }
 }

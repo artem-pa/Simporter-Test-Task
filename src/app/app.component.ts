@@ -1,10 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { IBook, IBookFull } from './interfaces/book.interface';
 
-// import { Injectable } from '@angular/core';
-// import { HttpClient } from '@angular/common/http';
-// import { Observable, throwError } from 'rxjs';
-// import { catchError, retry } from 'rxjs/operators';
+import { IBook, IBookFull } from './interfaces/book.interface';
 import { HttpService } from './services/http/http.service';
 
 @Component({
