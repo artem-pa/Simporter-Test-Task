@@ -2,13 +2,25 @@
 
 <table class="table">
   <tr>
-    <th class="table__title">Title</th>
-    <th class="table__description">Description</th>
-    <th class="table__pages">Page Count</th>
-    <th class="table__date">Publish Date</th>
+    <th class="table__title" (click)="setActiveFilter('title')">
+      Title
+      <span *ngIf="activeFilter[0] === 'title'">{{filterSymbol}}</span>
+    </th>
+    <th class="table__description" (click)="setActiveFilter('description')">
+      Description
+      <span *ngIf="activeFilter[0] === 'description'">{{filterSymbol}}</span>
+    </th>
+    <th class="table__pages" (click)="setActiveFilter('pageCount')">
+      Page Count
+      <span *ngIf="activeFilter[0] === 'pageCount'">{{filterSymbol}}</span>
+    </th>
+    <th class="table__date" (click)="setActiveFilter('publishDate')">
+      Publish Date
+      <span *ngIf="activeFilter[0] === 'publishDate'">{{filterSymbol}}</span>
+    </th>
   </tr>
 
-  <tr *ngFor="let book of filteredBookList">
+  <tr *ngFor="let book of sortedBookList">
     <td class="table__title">{{book.title}}</td>
     <td class="table__description" [title]="book.description">
       {{book.description}}
