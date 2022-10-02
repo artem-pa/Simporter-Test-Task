@@ -9,18 +9,19 @@ import { HttpService } from './services/http/http.service';
 })
 
 export class AppComponent implements OnInit {
-  constructor(private httpService: HttpService) {}
+  constructor(private httpService: HttpService) { }
 
   ngOnInit(): void {
     this.getBookList()
   }
 
+  public loaderStatus = true;
   public bookList: IBook[] = [];
 
   getBookList() {
-    const url = 'https://fakerestapi.azurewebsites.net/api/v1/books';
     this.httpService.getAllBooks().subscribe(data => {
-      this.bookList = this.formatData(data)
+      this.bookList = this.formatData(data);
+      this.loaderStatus = false;
     });
   }
 

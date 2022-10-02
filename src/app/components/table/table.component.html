@@ -28,4 +28,7 @@
     <td class="table__pages">{{book.pageCount}}</td>
     <td class="table__date">{{book.publishDate | date}}</td>
   </tr>
+  <tr *ngIf="sortedBookList.length === 0">
+    <td class="table__no-matches" colspan="4">No matches</td>
+  </tr>
 </table>

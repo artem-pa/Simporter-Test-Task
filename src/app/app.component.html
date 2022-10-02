@@ -1,4 +1,10 @@
 <div class="container">
-  <app-table [bookList]="bookList"></app-table>
-  <app-chart [bookList]="bookList"></app-chart>
+  <ng-container *ngIf="loaderStatus; else content">
+    <app-loader></app-loader>
+  </ng-container>
+
+  <ng-template #content>
+    <app-table [bookList]="bookList"></app-table>
+    <app-chart [bookList]="bookList"></app-chart>
+  </ng-template>
 </div>

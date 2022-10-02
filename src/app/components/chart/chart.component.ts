@@ -65,16 +65,10 @@ export class ChartComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    setTimeout(() => {
-      this.chartData;
-      this.chartOptions.series = [{
-        data: this.chartData.yaxis
-      }]
-      this.chartOptions.xaxis = {
-        ...this.chartOptions.xaxis,
-        categories: this.chartData.xaxis
-      }
-    }, 1000);
+    this.chartOptions.series = [{
+      data: this.chartData.yaxis
+    }]
+    this.chartOptions.xaxis.categories = this.chartData.xaxis;
   }
 
   get chartData(): ChartData {
