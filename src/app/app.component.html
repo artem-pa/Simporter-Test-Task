@@ -1,7 +1,5 @@
 <div class="container">
-  <ng-container *ngIf="loaderStatus; else content">
-    <app-loader></app-loader>
-  </ng-container>
+  <app-loader *ngIf="loaderStatus; else content"></app-loader>
 
   <ng-template #content>
     <app-table [bookList]="bookList"></app-table>

@@ -22,6 +22,7 @@
     "ng-apexcharts": "^1.7.1",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
+    "xlsx": "https://cdn.sheetjs.com/xlsx-0.18.12/xlsx-0.18.12.tgz",
     "zone.js": "~0.11.4"
   },
   "devDependencies": {

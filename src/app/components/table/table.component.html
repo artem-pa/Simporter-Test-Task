@@ -1,6 +1,11 @@
-<input type="text" class="table-input" placeholder="Enter search query..." [(ngModel)]="searchQuery">
+<form class="table__form">
+  <input type="text" name="search" class="table__input" placeholder="Enter search query..." [(ngModel)]="searchQuery">
+  <button class="table__button" (click)="exportToEscel()">
+    <img src="../../../assets/icons/excel_icon.svg" alt="Excel"> Export to EXCEL
+  </button>
+</form>
 
-<table class="table">
+<table #table class="table">
   <tr>
     <th class="table__title" (click)="setActiveFilter('title')">
       Title

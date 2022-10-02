@@ -1,4 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { utils, writeFile } from 'xlsx';
+
 import { IBook } from 'src/app/interfaces/book.interface';
 
 type FilterStatus = 'asc' | 'desc';
@@ -11,6 +13,7 @@ type FilterType = 'title' | 'description' | 'pageCount' | 'publishDate';
 })
 export class TableComponent implements OnInit {
   @Input() bookList: IBook[] = [];
+  @ViewChild('table') table: ElementRef;
 
   constructor() { }
 
@@ -23,6 +26,13 @@ export class TableComponent implements OnInit {
   setActiveFilter(type: FilterType) {
     if (type !== this.activeFilter[0]) return this.activeFilter = [type, 'asc'];
     return this.activeFilter = this.activeFilter[1] === 'asc' ? [type, 'desc'] : [type, 'asc'];
+  }
+
+  exportToEscel() {
+    if (this.sortedBookList.length === 0) return;
+    const workbook = utils.table_to_book(this.table.nativeElement, { sheet: 'Sheet 1' })
+    return writeFile(workbook, 'BookList.xlsx', {});
+
   }
 
   get filteredBookList(): IBook[] {
@@ -52,14 +62,14 @@ export class TableComponent implements OnInit {
           if (B > A) return -1 * sortType;
           return 0;
         })
-        case 'pageCount':
-          return [...this.filteredBookList].sort((a, b) => {
-            return (a.pageCount - b.pageCount)*sortType;
-          })
-        case 'publishDate':
-          return [...this.filteredBookList].sort((a, b) => {
-            return (Date.parse(a.publishDate) - Date.parse(b.publishDate))*sortType;
-          })
+      case 'pageCount':
+        return [...this.filteredBookList].sort((a, b) => {
+          return (a.pageCount - b.pageCount) * sortType;
+        })
+      case 'publishDate':
+        return [...this.filteredBookList].sort((a, b) => {
+          return (Date.parse(a.publishDate) - Date.parse(b.publishDate)) * sortType;
+        })
       default:
         return this.filteredBookList;
     }
