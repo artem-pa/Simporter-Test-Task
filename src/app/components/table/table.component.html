@@ -9,19 +9,19 @@
   <tr>
     <th class="table__title" (click)="setActiveFilter('title')">
       Title
-      <span *ngIf="activeFilter[0] === 'title'">{{filterSymbol}}</span>
+      <span *ngIf="activeFilter[0] === 'title'" [ngClass]="filterSymbol"></span>
     </th>
     <th class="table__description" (click)="setActiveFilter('description')">
       Description
-      <span *ngIf="activeFilter[0] === 'description'">{{filterSymbol}}</span>
+      <span *ngIf="activeFilter[0] === 'description'" [ngClass]="filterSymbol"></span>
     </th>
     <th class="table__pages" (click)="setActiveFilter('pageCount')">
       Page Count
-      <span *ngIf="activeFilter[0] === 'pageCount'">{{filterSymbol}}</span>
+      <span *ngIf="activeFilter[0] === 'pageCount'" [ngClass]="filterSymbol"></span>
     </th>
     <th class="table__date" (click)="setActiveFilter('publishDate')">
       Publish Date
-      <span *ngIf="activeFilter[0] === 'publishDate'">{{filterSymbol}}</span>
+      <span *ngIf="activeFilter[0] === 'publishDate'" [ngClass]="filterSymbol"></span>
     </th>
   </tr>
 

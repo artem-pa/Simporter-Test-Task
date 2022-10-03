@@ -95,4 +95,18 @@
       height: 100%;
     }
   }
+
+  &__asc,
+  &__desc {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 10px solid #000;
+    transition: 0.1s;
+  }
+  &__desc {
+    rotate: 180deg;
+  }
 }

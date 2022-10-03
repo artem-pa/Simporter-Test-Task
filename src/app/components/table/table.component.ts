@@ -22,6 +22,7 @@ export class TableComponent implements OnInit {
 
   searchQuery = '';
   activeFilter: [FilterType | null, FilterStatus] = [null, 'asc'];
+  isExportingToExcel = false;
 
   setActiveFilter(type: FilterType) {
     if (type !== this.activeFilter[0]) return this.activeFilter = [type, 'asc'];
@@ -32,7 +33,6 @@ export class TableComponent implements OnInit {
     if (this.sortedBookList.length === 0) return;
     const workbook = utils.table_to_book(this.table.nativeElement, { sheet: 'Sheet 1' })
     return writeFile(workbook, 'BookList.xlsx', {});
-
   }
 
   get filteredBookList(): IBook[] {
@@ -76,6 +76,6 @@ export class TableComponent implements OnInit {
   }
 
   get filterSymbol() {
-    return this.activeFilter[1] === 'asc' ? '▲' : '▼';
+    return this.activeFilter[1] === 'asc' ? 'table__asc' : 'table__desc';
   }
 }

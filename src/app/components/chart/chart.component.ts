@@ -1,8 +1,9 @@
-import { Component, Input, OnInit, ViewChild } from '@angular/core';
-import { ApexAxisChartSeries, ApexChart, ApexXAxis, ApexTitleSubtitle, ApexTheme, ApexAnnotations, ApexYAxis } from "ng-apexcharts";
-import { MONTHS } from 'src/app/constants/date.constant';
+import { Component, Input, OnInit } from '@angular/core';
+import { ApexAxisChartSeries, ApexChart, ApexXAxis, ApexTitleSubtitle, ApexTheme, ApexYAxis } from "ng-apexcharts";
 
+import { MONTHS } from 'src/app/constants/date.constant';
 import { IBook } from 'src/app/interfaces/book.interface';
+
 type ChartData = {
   xaxis: string[];
   yaxis: number[];
@@ -86,5 +87,4 @@ export class ChartComponent implements OnInit {
     })
     return result;
   }
-
 }

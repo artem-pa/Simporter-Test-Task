@@ -7,8 +7,8 @@ import { NgApexchartsModule } from 'ng-apexcharts';
 import { AppComponent } from './app.component';
 import { TableComponent } from './components/table/table.component';
 import { ChartComponent } from './components/chart/chart.component';
-import { HttpService } from './services/http/http.service';
 import { LoaderComponent } from './components/common/loader/loader.component';
+import { HttpService } from './services/http/http.service';
 
 @NgModule({
   declarations: [
